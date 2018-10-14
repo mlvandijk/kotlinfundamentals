@@ -11,7 +11,8 @@ fun display(message: String) {
     println(message)
 }
 
-// Using default parameters:
+// Using default parameters and `@JvmOverloads` annotation:
+@JvmOverloads
 fun log(message: String, logLevel: Int = 1) {
     println(message + logLevel)
 }
