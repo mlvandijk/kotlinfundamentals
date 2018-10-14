@@ -5,9 +5,12 @@ fun main(args: Array<String>) {
     val h1 = Header("H1")
     val h2 = Header("H2")
 
-    val h3 = h1 plus h2
+    val h3 = h1 plus h2 // infix function does not use dot or brackets
 
     println(h3.name)
+
+    val h4 = h1 + h2 // Operator overloading; add `operator` keyword to the function
+    println(h4.name)
 
 }
 
@@ -15,6 +18,6 @@ class Header(var name: String) {
 
 }
 
-infix fun Header.plus(other: Header) : Header {
+infix operator fun Header.plus(other: Header) : Header {
     return Header(this.name + other.name)
 }
