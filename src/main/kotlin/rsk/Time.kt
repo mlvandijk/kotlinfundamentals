@@ -6,6 +6,10 @@ interface Time {
     fun setTime(time: KevinTime) = setTime(time.hours) // Default implementation
 }
 
+interface EndOfTheWorld {
+    fun setTime(time: KevinTime) {}
+}
+
 class KevinTime {
     var hours: Int = 0
     var minutes: Int = 0
@@ -13,7 +17,11 @@ class KevinTime {
 }
 
 
-class YetiTime : Time {
+class YetiTime : Time, EndOfTheWorld {
+    override fun setTime(time: KevinTime) {
+        super<Time>.setTime(time) // Specify which interface to use
+    }
+
     override fun setTime(hours: Int, mins: Int, secs: Int) {
 
     }
