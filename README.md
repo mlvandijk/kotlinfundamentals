@@ -34,3 +34,10 @@ abstract class Person{   // Class is abstract
   fun goOnHoliday(){}    // goOnHoliday cannot be overridden
 }
 ```
+
+Everything is public by default. (Unlike Java, where the default is `package-private`.)
+Kotlin has the keyword `internal`, which means it's visible to anything in the same module.
+
+Sealed classes
+* Used to restrict class Hierarchies
+* "Enums on steroids"
