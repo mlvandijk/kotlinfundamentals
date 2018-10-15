@@ -12,12 +12,7 @@ abstract class Person(var firstName: String, var lastName: String) {
     abstract fun getAddress():String
 }
 
-class Student(firstName: String, lastName: String, val id: Int) : Person(firstName, lastName) {
-    var tutor: String = ""
-
-    constructor(firstName: String, lastName: String, id: Int, tutor:String): this(firstName, lastName, id) {
-        this.tutor = tutor
-    }
+class Student(firstName: String, lastName: String, val id: Int, var tutor: String = "") : Person(firstName, lastName) {
 
     override fun getName() : String{return ""}
 
