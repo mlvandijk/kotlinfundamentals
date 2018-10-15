@@ -1,13 +1,19 @@
 package rsk
 
-open class Person { // Open class to be able to extend this class
+abstract class Person {
     var firstName: String = ""
     var lastName: String = ""
 
-    open fun getName() : String = "$firstName $lastName" // Open function to be able to override the function
+    open fun getName() : String = "$firstName $lastName"
+    abstract fun getAddress():String
 }
 
 class Student : Person() {
-    override fun getName() : String{return ""} // Specify that you are overriding the functions
+    override fun getName() : String{return ""}
+
+    // Abstract method must be implemented (or this class should also be declared abstract
+    override fun getAddress(): String {
+        return ""
+    }
 }
 

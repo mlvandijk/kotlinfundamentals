@@ -25,3 +25,12 @@ data classes
 
 To make it possible to extend a class, open the class using the `open` keyword.
 
+Abstract classes
+
+```kotlin
+abstract class Person{   // Class is abstract
+  abstract fun getName() // getName must be implemented
+  open fun wrkHard(){}   // workHard may be overridden
+  fun goOnHoliday(){}    // goOnHoliday cannot be overridden
+}
+```
