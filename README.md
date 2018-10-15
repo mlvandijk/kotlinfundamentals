@@ -41,3 +41,48 @@ Kotlin has the keyword `internal`, which means it's visible to anything in the s
 Sealed classes
 * Used to restrict class Hierarchies
 * "Enums on steroids"
+
+Constructors
+Specify primary construction parameters on the class definition
+Kotlin does not have the `new` keyword.
+```kotlin
+open class Person(val name: String)
+val kevin = Person("Kevin")
+```
+
+Alternative primary constructor usage (not preferred):
+```kotlin
+open class Person(name: String) {
+  val name: String
+  init {
+    this.name = name
+  }
+}
+
+open class Person(_name: String) {
+    val name = _name
+}
+```
+
+Secondary constructor usage:
+```kotlin
+open class Person(name: String) {
+    constructor(name: String, age: Int) : this(name)
+}
+```
+Prefer to use default values over secondary constructors.
+
+Calling superclass constructors:
+```kotlin
+class Student(name: String): Person(name)
+
+class Student: Person {
+  constructor(name: String) : super(name) // Call the constructor of the superclass
+}
+```
+
+If a class has a default constructor, we have to call that default contructor explicitly.
+
+Private constructors are supported
+Usually used to inhibit construction (e.g. create a singleton)
+Kotlin has a better way of doing this.
